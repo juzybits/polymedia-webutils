@@ -1,0 +1,34 @@
+{
+    "name": "@polymedia/webutils",
+    "description": "Tools to help build web applications on the Sui network",
+    "version": "0.1.0",
+    "license": "Apache-2.0",
+    "author": "@juzybits (https://polymedia.app)",
+    "homepage": "https://polymedia.app",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "tsc",
+        "prepublishOnly": "rm -rf dist/ && yarn build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/juzybits/polymedia-webutils.git#0.1.0"
+    },
+    "keywords": [
+        "polymedia",
+        "sui",
+        "webutils"
+    ],
+    "peerDependencies": {
+        "react": "18",
+        "react-dom": "18"
+    },
+    "devDependencies": {
+        "react": "18",
+        "react-dom": "18",
+        "@types/react": "18",
+        "@types/react-dom": "18",
+        "typescript": "4"
+    }
+}
