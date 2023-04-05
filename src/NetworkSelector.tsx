@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { useClickOutside } from './useClickOutside';
 
-const defaultNetwork = 'devnet';
+const defaultNetwork = 'testnet';
 let supportedNetworks = ['devnet', 'testnet'];
 
 // Add 'localnet' to supportedNetworks
