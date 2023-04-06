@@ -19,8 +19,8 @@ export const RPC_CONFIG =
 
 	/* TESTNET */
 
-	TESTNET_FULLNODE: 'https://fullnode.testnet.sui.io:443',
-	// TESTNET_FULLNODE: 'https://rpc-testnet.suiscan.xyz:443',
+	// TESTNET_FULLNODE: 'https://fullnode.testnet.sui.io:443',
+	TESTNET_FULLNODE: 'https://rpc-testnet.suiscan.xyz:443',
 	// TESTNET_FULLNODE: 'https://sui-testnet.nodeinfra.com',
 	// TESTNET_FULLNODE: 'https://sui-testnet-endpoint.blockvision.org',
 	// TESTNET_FULLNODE: 'https://sui-rpc-pt.testnet-pride.com',
@@ -32,8 +32,8 @@ export const RPC_CONFIG =
 	// TESTNET_FULLNODE: 'https://testnet.artifact.systems/sui',
 	// TESTNET_FULLNODE: 'https://fullnode.testnet.vincagame.com:443',
 
-	TESTNET_WEBSOCKET: 'https://fullnode.testnet.sui.io:443',
-	// TESTNET_WEBSOCKET: 'wss://rpc-testnet.suiscan.xyz/websocket',
+	// TESTNET_WEBSOCKET: 'https://fullnode.testnet.sui.io:443',
+	TESTNET_WEBSOCKET: 'wss://rpc-testnet.suiscan.xyz/websocket',
 	// TESTNET_WEBSOCKET: 'wss://sui-rpc-pt.testnet-pride.com/websocket',
 	// TESTNET_WEBSOCKET: 'wss://sui-testnet-endpoint.blockvision.org/websocket',
 	// TESTNET_WEBSOCKET: 'wss://sui-testnet-rpc.bartestnet.com/websocket',
