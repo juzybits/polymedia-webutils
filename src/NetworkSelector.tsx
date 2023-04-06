@@ -1,24 +1,19 @@
-import { useRef, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
+
+import { NetworkName, switchNetwork, getSupportedNetworks } from './network';
 import { useClickOutside } from './useClickOutside';
 
-const defaultNetwork = 'testnet';
-let supportedNetworks = ['devnet', 'testnet'];
-
-// Add 'localnet' to supportedNetworks
-const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-if (isLocalhost) supportedNetworks.unshift('localnet');
-
-export const currentNetwork = loadNetwork();
-
-// Make currentNetwork the first element in supportedNetworks
-supportedNetworks = supportedNetworks.filter(net => net !== currentNetwork);
-supportedNetworks.unshift(currentNetwork);
-
-export const NetworkSelector: React.FC = () =>
-{
+export function NetworkSelector({ currentNetwork }: {
+    currentNetwork: NetworkName;
+}) {
     const [isOpen, setIsOpen] = useState(false);
+
     const selectorRef = useRef(null);
     useClickOutside(selectorRef, () => setIsOpen(false));
+
+    const supportedNetworks = useMemo(() => {
+        return getSupportedNetworks(currentNetwork);
+    }, [currentNetwork]);
 
     const ClosedSelector: React.FC = () => {
         return <div
@@ -38,7 +33,7 @@ export const NetworkSelector: React.FC = () =>
         </>;
     };
 
-    const NetworkOption: React.FC<{ network: string }> = ({ network }) => {
+    const NetworkOption: React.FC<{ network: NetworkName }> = ({ network }) => {
         const isSelected = network === currentNetwork;
         return <div
             className={`network-option ${isSelected ? 'selected' : ''}`}
@@ -59,35 +54,3 @@ export const NetworkSelector: React.FC = () =>
         </div>
     </div>;
 }
-
-function loadNetwork(): string
-{
-    // Read 'network' URL parameter
-    const params = new URLSearchParams(window.location.search);
-    const networkFromUrl = params.get('network');
-    // Delete query string
-    window.history.replaceState({}, document.title, window.location.pathname);
-
-    // Use network from query string, if valid
-    if (networkFromUrl && supportedNetworks.includes(networkFromUrl)) {
-        localStorage.setItem('polymedia.network', networkFromUrl);
-        return networkFromUrl;
-    }
-
-    // Use network from local storage, if valid
-    const networkFromLocal = localStorage.getItem('polymedia.network');
-    if (networkFromLocal && supportedNetworks.includes(networkFromLocal)) {
-        return networkFromLocal;
-    }
-
-    // Use default network
-    localStorage.setItem('polymedia.network', defaultNetwork);
-    return defaultNetwork;
-};
-
-function switchNetwork(newNetwork: string)
-{
-    localStorage.setItem('polymedia.network', newNetwork);
-    window.location.reload();
-};
-
