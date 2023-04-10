@@ -1,17 +1,11 @@
 import { NetworkName } from './network';
+import defaultEndpoints from './rpcConfig.json';
 
 const rpcConfigUrl = 'https://raw.githubusercontent.com/juzybits/polymedia-webutils/main/src/rpcConfig.json';
 
 type RpcConfig = {
     fullnode: string,
     faucet: string,
-}
-export async function loadRpcConfig(network: NetworkName): Promise<RpcConfig> {
-    const endpoints = await fetchRpcEndpoints();
-    return {
-        fullnode: endpoints[`${network}_fullnode`],
-        faucet: endpoints[`${network}_faucet`],
-    };
 }
 
 type RpcEndpoints = {
@@ -27,6 +21,25 @@ type RpcEndpoints = {
     testnet_websocket: string;
     testnet_faucet: string;
 }
+
+export async function loadRpcConfig({
+    network,
+    noFetch = false,
+    customEndpoints = {},
+}: {
+    network: NetworkName,
+    customEndpoints?: Partial<RpcEndpoints>, // overwrite some or all endpoints
+    noFetch?: boolean, // read directly from rpcConfig.json rather than fetching from URL
+}): Promise<RpcConfig>
+{
+    const baseEndpoints = noFetch ? defaultEndpoints : await fetchRpcEndpoints();
+    const endpoints = {...baseEndpoints, ...customEndpoints};
+    return {
+        fullnode: endpoints[`${network}_fullnode`],
+        faucet: endpoints[`${network}_faucet`],
+    };
+}
+
 async function fetchRpcEndpoints(url: string = rpcConfigUrl): Promise<RpcEndpoints> {
     const response = await fetch(url);
     if (!response.ok) {
