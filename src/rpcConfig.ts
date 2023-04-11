@@ -24,10 +24,12 @@ type RpcEndpoints = {
 
 export async function loadRpcConfig({
     network,
+    websocket = false,
     noFetch = false,
     customEndpoints = {},
 }: {
     network: NetworkName,
+    websocket?: boolean
     customEndpoints?: Partial<RpcEndpoints>, // overwrite some or all endpoints
     noFetch?: boolean, // read directly from rpcConfig.json rather than fetching from URL
 }): Promise<RpcConfig>
@@ -35,7 +37,7 @@ export async function loadRpcConfig({
     const baseEndpoints = noFetch ? defaultEndpoints : await fetchRpcEndpoints();
     const endpoints = {...baseEndpoints, ...customEndpoints};
     return {
-        fullnode: endpoints[`${network}_fullnode`],
+        fullnode: websocket ? endpoints[`${network}_websocket`] : endpoints[`${network}_fullnode`],
         faucet: endpoints[`${network}_faucet`],
     };
 }
