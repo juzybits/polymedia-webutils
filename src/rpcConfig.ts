@@ -3,8 +3,9 @@ import defaultEndpoints from './rpcConfig.json';
 
 const rpcConfigUrl = 'https://raw.githubusercontent.com/juzybits/polymedia-webutils/main/src/rpcConfig.json';
 
-type RpcConfig = {
+type ConnectionOptions = { // mirrors sui/sdk/typescript/src/rpc/connection.ts
     fullnode: string,
+    websocket: string,
     faucet: string,
 }
 
@@ -24,20 +25,19 @@ type RpcEndpoints = {
 
 export async function loadRpcConfig({
     network,
-    websocket = false,
     noFetch = false,
     customEndpoints = {},
 }: {
     network: NetworkName,
-    websocket?: boolean
     customEndpoints?: Partial<RpcEndpoints>, // overwrite some or all endpoints
     noFetch?: boolean, // read directly from rpcConfig.json rather than fetching from URL
-}): Promise<RpcConfig>
+}): Promise<ConnectionOptions>
 {
     const baseEndpoints = noFetch ? defaultEndpoints : await fetchRpcEndpoints();
     const endpoints = {...baseEndpoints, ...customEndpoints};
     return {
-        fullnode: websocket ? endpoints[`${network}_websocket`] : endpoints[`${network}_fullnode`],
+        fullnode: endpoints[`${network}_fullnode`],
+        websocket: endpoints[`${network}_websocket`],
         faucet: endpoints[`${network}_faucet`],
     };
 }

@@ -15,8 +15,8 @@ while getopts 'c' option; do
 done
 
 SUI_RPC_HOSTS=(
-  'https://fullnode.testnet.sui.io:443'
-  'https://rpc-testnet.suiscan.xyz:443'
+  'https://fullnode.testnet.sui.io'
+  'https://rpc-testnet.suiscan.xyz'
   'https://sui-rpc.testnet.lgns.net'
   'https://sui-testnet-endpoint.blockvision.org'
   'https://sui-testnet-rpc-germany.allthatnode.com'
