@@ -15,18 +15,18 @@ while getopts 'c' option; do
 done
 
 SUI_RPC_HOSTS=(
-  'https://fullnode.testnet.sui.io'
-  'https://rpc-testnet.suiscan.xyz'
-  'https://sui-rpc.testnet.lgns.net'
-  'https://sui-testnet-endpoint.blockvision.org'
-  'https://sui-testnet-rpc-germany.allthatnode.com'
-  'https://sui-testnet-rpc-korea.allthatnode.com'
-  'https://sui-testnet-rpc.allthatnode.com'
-  'https://testnet.artifact.systems/sui'
-  'https://sui-testnet.nodeinfra.com'
-  # 'https://sui-testnet-fullnode.quantnode.tech' # Fast, but CORS error
-  # 'https://fullnode.testnet.vincagame.com:443' # 502
-  # 'https://sui-rpc-pt.testnet-pride.com' # notExists (outdated)
+  'https://fullnode.testnet.sui.io'                 # new jersey
+  'https://rpc-testnet.suiscan.xyz'                 # california
+  'https://sui-rpc.testnet.lgns.net'                # lithuania
+  'https://sui-testnet.nodeinfra.com'               # arizona
+  'https://fullnode.testnet.vincagame.com'          # germany
+  # 'https://testnet.artifact.systems/sui'            # new jersey | The response returned from RPC server does not match the TypeScript definition. This is likely because the SDK version is not compatible with the RPC server.
+  # 'https://sui-testnet-rpc.allthatnode.com'         # germany | 429 when fetching profiles
+  # 'https://sui-testnet-rpc-germany.allthatnode.com' # germany | 429 when fetching profiles
+  # 'https://sui-testnet-endpoint.blockvision.org'    # singapore | 1.8s
+  # 'https://sui-testnet-rpc-korea.allthatnode.com'   # korea | 2.4s
+  # 'https://sui-testnet-fullnode.quantnode.tech'     # germany | Fast, but CORS error
+  # 'https://sui-rpc-pt.testnet-pride.com'            # france | 502
 )
 
 # Table header

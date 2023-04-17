@@ -19,7 +19,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git://github.com/juzybits/polymedia-webutils.git#0.1.8"
+        "url": "https://github.com/juzybits/polymedia-webutils"
     },
     "keywords": [
         "polymedia",
