@@ -1,7 +1,7 @@
-const defaultNetwork: NetworkName = 'testnet';
-const allNetworks: NetworkName[] = ['localnet', 'devnet', 'testnet'];
+const defaultNetwork: NetworkName = 'mainnet';
+const allNetworks: NetworkName[] = ['localnet', 'devnet', 'testnet', 'mainnet'];
 
-export type NetworkName = 'localnet' | 'devnet' | 'testnet';
+export type NetworkName = 'localnet' | 'devnet' | 'testnet' | 'mainnet';
 
 export function getSupportedNetworks(showFirst?: NetworkName): NetworkName[]
 {

@@ -21,6 +21,10 @@ type RpcEndpoints = {
     testnet_fullnode: string;
     testnet_websocket: string;
     testnet_faucet: string;
+
+    mainnet_fullnode: string;
+    mainnet_websocket: string;
+    mainnet_faucet: string;
 }
 
 export async function loadRpcConfig({

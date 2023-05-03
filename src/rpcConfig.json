@@ -9,5 +9,9 @@
 
     "testnet_fullnode": "https://rpc-testnet.suiscan.xyz",
     "testnet_websocket": "https://fullnode.testnet.sui.io",
-    "testnet_faucet": "https://faucet.testnet.sui.io/gas"
+    "testnet_faucet": "https://faucet.testnet.sui.io/gas",
+
+    "mainnet_fullnode": "https://rpc-mainnet.suiscan.xyz",
+    "mainnet_websocket": "https://fullnode.mainnet.sui.io",
+    "mainnet_faucet": "https://faucet.mainnet.sui.io/gas"
 }
