@@ -3,13 +3,17 @@ const allNetworks: NetworkName[] = ['localnet', 'devnet', 'testnet', 'mainnet'];
 
 export type NetworkName = 'localnet' | 'devnet' | 'testnet' | 'mainnet';
 
+export function isLocalhost(): boolean {
+    const hostname = window.location.hostname;
+    return hostname === 'localhost' || hostname === '127.0.0.1';
+}
+
 export function getSupportedNetworks(showFirst?: NetworkName): NetworkName[]
 {
     let supportedNetworks: NetworkName[] = [...allNetworks];
 
     // Remove 'localnet' from supportedNetworks if not on localhost
-    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-    if (!isLocalhost) supportedNetworks.shift();
+    !isLocalhost() && supportedNetworks.shift();
 
     // Make showFirst the first element in supportedNetworks
     if (showFirst) {
