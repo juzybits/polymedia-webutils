@@ -16,12 +16,10 @@ export function NetworkSelector({ currentNetwork }: {
     }, [currentNetwork]);
 
     const ClosedSelector: React.FC = () => {
-        return <div
-            className='network-option'
-            // onMouseEnter={() => setIsOpen(true)}
-            onClick={() => setIsOpen(true)}
-        >
-            {currentNetwork}
+        return <div className='network-option' /* onMouseEnter={() => setIsOpen(true)} */ >
+            <span className='text' onClick={() => setIsOpen(true)}>
+                {currentNetwork}
+            </span>
         </div>;
     };
 
@@ -35,19 +33,18 @@ export function NetworkSelector({ currentNetwork }: {
 
     const NetworkOption: React.FC<{ network: NetworkName }> = ({ network }) => {
         const isSelected = network === currentNetwork;
-        return <div
-            className={`network-option ${isSelected ? 'selected' : ''}`}
-            onClick={isSelected ? undefined : () => switchNetwork(network)}
-        >
-            {network == currentNetwork ? '>' : ''}
-            {network}
+        return <div className={`network-option ${isSelected ? 'selected' : ''}`}>
+            <span className='text' onClick={isSelected ? undefined : () => switchNetwork(network)}>
+                {network == currentNetwork ? '>' : ''}
+                {network}
+            </span>
         </div>;
     };
 
     return <div
         id='network-selector'
         ref={selectorRef}
-        onMouseLeave={() => setIsOpen(false)}
+        // onMouseLeave={() => setIsOpen(false)}
     >
         <div className='network-options'>
             {isOpen ? <OpenSelector /> : <ClosedSelector />}
