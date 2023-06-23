@@ -36,6 +36,7 @@ SUI_RPC_HOSTS=(
   'https://sui-mainnet-rpc.bartestnet.com'
   'https://mainnet.sui.rpcpool.com'
   'https://mainnet-rpc.sui.chainbase.online'
+  'https://sui-mainnet.public.blastapi.io'
   'https://sui-mainnet-ca-1.cosmostation.io'
   'https://sui-mainnet-ca-2.cosmostation.io'
   'https://sui-mainnet-eu-1.cosmostation.io'
