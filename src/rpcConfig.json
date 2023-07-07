@@ -7,7 +7,7 @@
     "devnet_websocket": "https://fullnode.devnet.sui.io",
     "devnet_faucet": "https://faucet.devnet.sui.io/gas",
 
-    "testnet_fullnode": "https://rpc-testnet.suiscan.xyz",
+    "testnet_fullnode": "https://fullnode.testnet.sui.io",
     "testnet_websocket": "https://fullnode.testnet.sui.io",
     "testnet_faucet": "https://faucet.testnet.sui.io/gas",
 
