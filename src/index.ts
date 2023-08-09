@@ -1,3 +1,4 @@
+export * from './addresses';
 export * from './links';
 export * from './network';
 export * from './NetworkSelector';
