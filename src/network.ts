@@ -31,8 +31,12 @@ export function loadNetwork(): NetworkName
     // Read 'network' URL parameter
     const params = new URLSearchParams(window.location.search);
     const networkFromUrl = params.get('network');
-    // Delete query string
-    window.history.replaceState({}, document.title, window.location.pathname);
+
+    // Delete the 'network' parameter from the query string
+    params.delete('network');
+    const newQueryStr = params.toString();
+    const newUrl = window.location.pathname + (newQueryStr ? '?' + newQueryStr : '');
+    window.history.replaceState({}, document.title, newUrl);
 
     // Use network from query string, if valid
     if (isNetworkName(networkFromUrl) && supportedNetworks.includes(networkFromUrl)) {
