@@ -6,7 +6,7 @@ settings:
 
 devDependencies:
   typescript:
-    specifier: ^5.0.0
+    specifier: ^5.1.6
     version: 5.1.6
 
 packages:
