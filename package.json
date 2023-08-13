@@ -1,7 +1,7 @@
 {
     "name": "@polymedia/webutils",
     "description": "Tools to help build web applications on the Sui network",
-    "version": "1.0.5",
+    "version": "2.0.0",
     "license": "Apache-2.0",
     "author": "@juzybits (https://polymedia.app)",
     "homepage": "https://polymedia.app",
@@ -26,15 +26,7 @@
         "sui",
         "webutils"
     ],
-    "peerDependencies": {
-        "react": "^18.0.0",
-        "react-dom": "^18.0.0"
-    },
     "devDependencies": {
-        "@types/react": "^18.2.19",
-        "@types/react-dom": "^18.2.7",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "typescript": "^5.1.6"
+        "typescript": "^5.0.0"
     }
 }
