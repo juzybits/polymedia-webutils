@@ -27,17 +27,46 @@ type RpcEndpoints = {
     mainnet_faucet: string;
 }
 
-export async function loadRpcConfig({
+/**
+ * Get the RPC configuration for a given network.
+ *
+ * It either reads the RPC config directly from the local rpcConfig.json, or it fetches it
+ * from `raw.githubusercontent.com`. If fetching fails, it defaults to the local config.
+ *
+ * @param {object} options - The configuration options.
+ * @property {NetworkName} options.network - The name of the network for which the RPC config is needed.
+ * @property {Partial<RpcEndpoints>} [options.customEndpoints] - Endpoints to override the local/fetched config.
+ * @property {boolean} [options.fetch=false] - If true, fetches config from GitHub. If false, reads it from local file.
+ *
+ * @returns {Promise<ConnectionOptions>} The RPC connection options for the given network.
+ *
+ * @example
+ * const options = {
+ *     network: 'mainnet',
+ *     customEndpoints: {
+ *         mainnet_fullnode: 'https://custom.fullnode.url'
+ *     }
+ * };
+ * const config = await getRpcConfig(options);
+ */
+export async function getRpcConfig({
     network,
-    noFetch = false,
+    fetch = false,
     customEndpoints = {},
 }: {
     network: NetworkName,
-    customEndpoints?: Partial<RpcEndpoints>, // overwrite some or all endpoints
-    noFetch?: boolean, // read directly from rpcConfig.json rather than fetching from URL
+    customEndpoints?: Partial<RpcEndpoints>,
+    fetch?: boolean,
 }): Promise<ConnectionOptions>
 {
-    const baseEndpoints = noFetch ? defaultEndpoints : await fetchRpcEndpoints();
+    let baseEndpoints = defaultEndpoints;
+    if (fetch) {
+        try {
+            baseEndpoints = await fetchRpcEndpoints();
+        } catch (error) {
+            console.warn(`[getRpcConfig] Error fetching RPC config. Will use local defaults. Error: ${error}`);
+        }
+    }
     const endpoints = {...baseEndpoints, ...customEndpoints};
     return {
         fullnode: endpoints[`${network}_fullnode`],
