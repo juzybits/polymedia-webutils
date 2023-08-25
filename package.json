@@ -1,16 +1,22 @@
 {
     "name": "@polymedia/webutils",
     "description": "Tools to help build web applications on the Sui network",
-    "version": "2.1.0",
+    "version": "2.2.0",
     "license": "Apache-2.0",
     "author": "@juzybits (https://polymedia.app)",
     "homepage": "https://polymedia.app",
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "types": "dist/esm/index.d.ts",
+    "exports": {
+        "source": "./src/index.ts",
+        "import": "./dist/esm/index.js",
+        "require": "./dist/cjs/index.js"
+    },
     "scripts": {
         "lint": "eslint ./src --ext .ts,.tsx",
-        "build": "tsc",
-        "prepublishOnly": "rm -rf dist/ && pnpm build"
+        "build": "rm -rf dist/ && tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json",
+        "prepublishOnly": "pnpm build"
     },
     "files": [
         "dist/",
