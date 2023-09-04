@@ -1,7 +1,7 @@
 {
     "name": "@polymedia/webutils",
     "description": "Tools to help build web applications on the Sui network",
-    "version": "2.2.0",
+    "version": "2.3.0",
     "license": "Apache-2.0",
     "author": "@juzybits (https://polymedia.app)",
     "homepage": "https://polymedia.app",
