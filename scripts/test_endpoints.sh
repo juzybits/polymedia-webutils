@@ -16,10 +16,7 @@ done
 
 SUI_RPC_HOSTS=(
   # Mainnet
-  'https://fullnode.mainnet.sui.io'
   'https://rpc-mainnet.suiscan.xyz'
-  # 'https://sui-mainnet.nodeinfra.com'               # 429
-  # 'https://sui-mainnet-rpc.bartestnet.com'          # 502
   'https://mainnet.sui.rpcpool.com'
   'https://mainnet-rpc.sui.chainbase.online'
   'https://sui-mainnet.public.blastapi.io'
@@ -33,12 +30,17 @@ SUI_RPC_HOSTS=(
   'https://sui-mainnet-rpc.allthatnode.com'
   'https://sui-mainnet-us-1.cosmostation.io'
   'https://sui-mainnet-us-2.cosmostation.io'
-  # 'https://sui-mainnet.blockeden.xyz'               # 000
   'https://sui-rpc-mainnet.testnet-pride.com'
   'https://sui1mainnet-rpc.chainode.tech'
-  # 'https://sui-mainnet-endpoint.blockvision.org'    # 404
+  'https://sui.publicnode.com'
+  # Last update 2023-09-04
+  # 'https://fullnode.mainnet.sui.io'                 # slow
+  # 'https://sui-mainnet-endpoint.blockvision.org'    # slow
   # 'https://sui-mainnet-rpc-korea.allthatnode.com'   # slow
-  # 'https://sui.publicnode.com' # 403 forbidden
+  # 'https://sui-mainnet.nodeinfra.com'               # 429
+  # 'https://sui-mainnet-rpc.bartestnet.com'          # 502
+  # 'https://sui-mainnet.blockeden.xyz'               # 000
+
   # 'wss://mainnet.sui.rpcpool.com'
   # 'wss://rpc-mainnet.suiscan.xyz/websocket'
   # 'wss://sui-mainnet-endpoint.blockvision.org/websocket'
