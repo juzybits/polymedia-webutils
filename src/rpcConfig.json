@@ -11,7 +11,7 @@
     "testnet_websocket": "https://fullnode.testnet.sui.io",
     "testnet_faucet": "https://faucet.testnet.sui.io/gas",
 
-    "mainnet_fullnode": "https://sui-mainnet-eu-3.cosmostation.io",
+    "mainnet_fullnode": "https://rpc-mainnet.suiscan.xyz",
     "mainnet_websocket": "https://fullnode.mainnet.sui.io",
     "mainnet_faucet": "https://faucet.mainnet.sui.io/gas"
 }

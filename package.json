@@ -1,7 +1,7 @@
 {
     "private": false,
     "name": "@polymedia/webutils",
-    "version": "2.3.1",
+    "version": "2.3.2",
     "description": "Tools to help build web applications on the Sui network",
     "license": "Apache-2.0",
     "author": "@juzybits (https://polymedia.app)",
@@ -21,8 +21,8 @@
         "prepublishOnly": "pnpm build"
     },
     "devDependencies": {
-        "@typescript-eslint/eslint-plugin": "^6.6.0",
-        "@typescript-eslint/parser": "^6.6.0",
+        "@typescript-eslint/eslint-plugin": "^6.7.0",
+        "@typescript-eslint/parser": "^6.7.0",
         "eslint": "^8.49.0",
         "eslint-plugin-deprecation": "^1.5.0",
         "typescript": "^5.2.2"
