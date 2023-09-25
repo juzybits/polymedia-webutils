@@ -12,9 +12,6 @@ export function getSupportedNetworks(showFirst?: NetworkName): NetworkName[]
 {
     let supportedNetworks: NetworkName[] = [...allNetworks];
 
-    // Remove 'localnet' from supportedNetworks if not on localhost
-    !isLocalhost() && supportedNetworks.shift();
-
     // Make showFirst the first element in supportedNetworks
     if (showFirst) {
         supportedNetworks = supportedNetworks.filter(net => net !== showFirst);
