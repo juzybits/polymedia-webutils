@@ -1,1 +1,1 @@
-export const ADDRESS_REGEX = '0x[0-9a-fA-F]{64}';
+export const ADDRESS_REGEX = '0[xX][a-fA-F0-9]{64}';
