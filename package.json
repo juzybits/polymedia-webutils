@@ -21,10 +21,12 @@
         "prepublishOnly": "pnpm build"
     },
     "devDependencies": {
-        "@typescript-eslint/eslint-plugin": "^6.17.0",
-        "@typescript-eslint/parser": "^6.17.0",
-        "eslint": "^8.56.0",
+        "@typescript-eslint/eslint-plugin": "latest",
+        "@typescript-eslint/parser": "latest",
+        "eslint-plugin-deprecation": "latest",
+        "eslint": "latest",
         "typescript": "^5.3.3"
+
     },
     "files": [
         "dist/",
@@ -39,8 +41,5 @@
         "source": "./src/index.ts",
         "import": "./dist/esm/index.js",
         "require": "./dist/cjs/index.js"
-    },
-    "dependencies": {
-        "eslint-plugin-deprecation": "^2.0.0"
     }
 }
