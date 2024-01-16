@@ -1,7 +1,7 @@
+import { NetworkName } from "@polymedia/suits";
+
 const defaultNetwork: NetworkName = 'mainnet';
 const allNetworks: NetworkName[] = ['localnet', 'devnet', 'testnet', 'mainnet'];
-
-export type NetworkName = 'localnet' | 'devnet' | 'testnet' | 'mainnet';
 
 export function isLocalhost(): boolean {
     const hostname = window.location.hostname;

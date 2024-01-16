@@ -1,4 +1,4 @@
-import { NetworkName } from './network';
+import { NetworkName } from '@polymedia/suits';
 import defaultEndpoints from './rpcConfig.json';
 
 const rpcConfigUrl = 'https://raw.githubusercontent.com/juzybits/polymedia-webutils/main/src/rpcConfig.json';
