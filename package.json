@@ -1,6 +1,6 @@
 {
     "private": false,
-    "version": "3.0.0",
+    "version": "3.0.1",
     "name": "@polymedia/webutils",
     "author": "@juzybits (https://polymedia.app)",
     "homepage": "https://polymedia.app",
@@ -21,7 +21,7 @@
         "prepublishOnly": "pnpm build"
     },
     "dependencies": {
-        "@polymedia/suits": "^0.0.2"
+        "@polymedia/suits": "^0.0.13"
     },
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "latest",
