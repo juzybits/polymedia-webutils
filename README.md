@@ -1,2 +1,3 @@
 # Polymedia Webutils
-Tools to help build web applications on the Sui network.
+
+Tools to help build Sui dApps with React.

@@ -1,10 +1,10 @@
 {
     "private": false,
-    "version": "3.0.1",
+    "version": "4.0.0",
     "name": "@polymedia/webutils",
     "author": "@juzybits (https://polymedia.app)",
     "homepage": "https://polymedia.app",
-    "description": "Tools to help build web applications on the Sui network",
+    "description": "Tools to help build Sui dApps with React",
     "license": "Apache-2.0",
     "repository": {
         "type": "git",
@@ -21,13 +21,21 @@
         "prepublishOnly": "pnpm build"
     },
     "dependencies": {
-        "@polymedia/suits": "^0.0.13"
+        "@polymedia/suits": "^0.0.15"
+    },
+    "peerDependencies": {
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0"
     },
     "devDependencies": {
-        "@typescript-eslint/eslint-plugin": "latest",
-        "@typescript-eslint/parser": "latest",
-        "eslint": "latest",
-        "eslint-plugin-deprecation": "latest",
+        "@types/react-dom": "^18.2.18",
+        "@types/react": "^18.2.48",
+        "@typescript-eslint/eslint-plugin": "^6.19.1",
+        "@typescript-eslint/parser": "^6.19.1",
+        "eslint-plugin-deprecation": "^2.0.0",
+        "eslint": "^8.56.0",
+        "react-dom": "^18.2.0",
+        "react": "^18.2.0",
         "typescript": "^5.3.3"
     },
     "files": [
@@ -36,12 +44,12 @@
         "LICENSE",
         "README.md"
     ],
-    "main": "dist/cjs/index.js",
-    "module": "dist/esm/index.js",
-    "types": "dist/esm/index.d.ts",
+    "types": "./dist/cjs/index.d.ts",
+    "main": "./dist/cjs/index.js",
+    "import": "./dist/esm/index.js",
     "exports": {
-        "source": "./src/index.ts",
-        "import": "./dist/esm/index.js",
-        "require": "./dist/cjs/index.js"
+        "types": "./dist/cjs/index.d.ts",
+        "main": "./dist/cjs/index.js",
+        "import": "./dist/esm/index.js"
     }
 }

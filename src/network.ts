@@ -1,4 +1,4 @@
-import { NetworkName } from "@polymedia/suits";
+import { NetworkName } from '@polymedia/suits';
 
 const defaultNetwork: NetworkName = 'mainnet';
 const allNetworks: NetworkName[] = ['localnet', 'devnet', 'testnet', 'mainnet'];
@@ -52,10 +52,14 @@ export function loadNetwork(): NetworkName
     return defaultNetwork;
 }
 
-export function switchNetwork(newNetwork: string)
+export function switchNetwork(newNetwork: string, onSwitch?: () => void)
 {
     localStorage.setItem('polymedia.network', newNetwork);
-    window.location.reload();
+    if (typeof onSwitch !== 'undefined') {
+        onSwitch();
+    } else {
+        window.location.reload();
+    }
 };
 
 function isNetworkName(value: string | null): value is NetworkName {
