@@ -38,7 +38,12 @@ export function NetworkSelector({
     const NetworkOption: React.FC<{ network: NetworkName }> = ({ network }) => {
         const isSelected = network === currentNetwork;
         return <div className={`network-option ${isSelected ? 'selected' : ''}`}>
-            <span className='text' onClick={isSelected ? undefined : () => switchNetwork(network, onSwitch)}>
+            <span className='text'
+                onClick={isSelected ? undefined : () => {
+                    switchNetwork(network, onSwitch);
+                    setIsOpen(false);
+                }}
+            >
                 {network == currentNetwork ? '>' : ''}
                 {network}
             </span>
