@@ -8,7 +8,7 @@ export function NetworkSelector({
     onSwitch,
 }: {
     currentNetwork: NetworkName;
-    onSwitch?: () => void;
+    onSwitch?: (newNetwork: NetworkName) => void;
 }) {
     const [isOpen, setIsOpen] = useState(false);
 

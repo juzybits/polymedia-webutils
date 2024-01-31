@@ -52,11 +52,13 @@ export function loadNetwork(): NetworkName
     return defaultNetwork;
 }
 
-export function switchNetwork(newNetwork: string, onSwitch?: () => void)
-{
+export function switchNetwork(
+    newNetwork: NetworkName,
+    onSwitch?: (newNetwork: NetworkName) => void
+) {
     localStorage.setItem('polymedia.network', newNetwork);
     if (typeof onSwitch !== 'undefined') {
-        onSwitch();
+        onSwitch(newNetwork);
     } else {
         window.location.reload();
     }
