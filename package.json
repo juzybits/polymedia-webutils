@@ -47,10 +47,7 @@
         "access": "public"
     },
     "files": [
-        "dist/",
-        "src/",
-        "LICENSE",
-        "README.md"
+        "dist/"
     ],
     "types": "./dist/cjs/index.d.ts",
     "main": "./dist/cjs/index.js",
