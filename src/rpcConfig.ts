@@ -1,3 +1,5 @@
+// DEPRECATED: This entire file is deprecated and may be removed in future releases.
+
 import { NetworkName } from '@polymedia/suits';
 import defaultEndpoints from './rpcConfig.json';
 
@@ -39,6 +41,8 @@ type RpcEndpoints = {
  * @property {boolean} [options.fetch=false] - If true, fetches config from GitHub. If false, reads it from local file.
  *
  * @returns {Promise<ConnectionOptions>} The RPC connection options for the given network.
+ *
+ * @deprecated this was handy during devnet days, but is no longer needed.
  *
  * @example
  * const options = {
