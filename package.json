@@ -16,9 +16,10 @@
         "webutils"
     ],
     "scripts": {
-        "lint": "eslint ./src --ext .ts,.tsx",
-        "build": "rm -rf dist/ && tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json",
-        "prepublishOnly": "pnpm build"
+        "build": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json",
+        "clean": "rm -rf dist/ node_modules/",
+        "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+        "prepublishOnly": "rm -rf dist/ && pnpm build"
     },
     "dependencies": {
         "@polymedia/suits": "^0.0.24"
@@ -33,7 +34,9 @@
         "@typescript-eslint/eslint-plugin": "^6.21.0",
         "@typescript-eslint/parser": "^6.21.0",
         "eslint": "^8.56.0",
-        "eslint-plugin-deprecation": "^2.0.0",
+        "eslint-plugin-react": "^7.33.2",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-react-refresh": "^0.4.5",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "typescript": "^5.3.3"
