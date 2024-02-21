@@ -13,7 +13,7 @@ export function NetworkSelector({
     const [isOpen, setIsOpen] = useState(false);
 
     const selectorRef = useRef(null);
-    useClickOutside(selectorRef, () => setIsOpen(false));
+    useClickOutside(selectorRef, () => { setIsOpen(false) });
 
     const supportedNetworks = useMemo(() => {
         return getSupportedNetworks(currentNetwork);
@@ -21,7 +21,7 @@ export function NetworkSelector({
 
     const ClosedSelector: React.FC = () => {
         return <div className='network-option' /* onMouseEnter={() => setIsOpen(true)} */ >
-            <span className='text' onClick={() => setIsOpen(true)}>
+            <span className='text' onClick={() => { setIsOpen(true) }}>
                 {currentNetwork}
             </span>
         </div>;

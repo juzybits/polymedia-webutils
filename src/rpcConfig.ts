@@ -60,13 +60,17 @@ export async function getRpcConfig({
 }): Promise<ConnectionOptions>
 {
     let baseEndpoints = defaultEndpoints;
+
     if (fetch) {
-        try {
-            baseEndpoints = await fetchRpcEndpoints();
-        } catch (error) {
+        await fetchRpcEndpoints()
+        .then(rpcEndpoints => {
+            baseEndpoints = rpcEndpoints;
+        })
+        .catch(error => {
             console.warn(`[getRpcConfig] Error fetching RPC config. Will use local defaults. Error: ${error}`);
-        }
+        });
     }
+
     const endpoints = {...baseEndpoints, ...customEndpoints};
     return {
         fullnode: endpoints[`${network}_fullnode`],
@@ -80,6 +84,6 @@ async function fetchRpcEndpoints(url: string = rpcConfigUrl): Promise<RpcEndpoin
     if (!response.ok) {
         throw new Error(`Error fetching RPC config: ${response.statusText}`);
     }
-    const data: RpcEndpoints = await response.json();
+    const data = await response.json() as RpcEndpoints;
     return data;
 }

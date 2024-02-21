@@ -62,7 +62,7 @@ export function switchNetwork(
     } else {
         window.location.reload();
     }
-};
+}
 
 function isNetworkName(value: string | null): value is NetworkName {
     return value !== null && allNetworks.includes(value as NetworkName);
