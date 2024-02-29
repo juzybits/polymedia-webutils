@@ -5,7 +5,7 @@ import { useClickOutside } from './useClickOutside';
 
 export function NetworkSelector({
     currentNetwork,
-    supportedNetworks = ['mainnet', 'testnet', 'devnet', 'localnet'],
+    supportedNetworks = ['localnet', 'devnet', 'testnet', 'mainnet'],
     onSwitch,
 }: {
     currentNetwork: NetworkName;
