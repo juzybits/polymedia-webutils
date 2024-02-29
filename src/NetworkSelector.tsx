@@ -1,23 +1,21 @@
 import { NetworkName } from '@polymedia/suits';
-import { useMemo, useRef, useState } from 'react';
-import { getSupportedNetworks, switchNetwork } from './network';
+import { useRef, useState } from 'react';
+import { switchNetwork } from './network';
 import { useClickOutside } from './useClickOutside';
 
 export function NetworkSelector({
     currentNetwork,
+    supportedNetworks = ['mainnet', 'testnet', 'devnet', 'localnet'],
     onSwitch,
 }: {
     currentNetwork: NetworkName;
+    supportedNetworks?: NetworkName[];
     onSwitch?: (newNetwork: NetworkName) => void;
 }) {
     const [isOpen, setIsOpen] = useState(false);
 
     const selectorRef = useRef(null);
     useClickOutside(selectorRef, () => { setIsOpen(false) });
-
-    const supportedNetworks = useMemo(() => {
-        return getSupportedNetworks(currentNetwork);
-    }, [currentNetwork]);
 
     const ClosedSelector: React.FC = () => {
         return <div className='network-option' /* onMouseEnter={() => setIsOpen(true)} */ >
@@ -27,9 +25,13 @@ export function NetworkSelector({
         </div>;
     };
 
+    // Make the current network the first element in supportedNetworks
+    supportedNetworks = supportedNetworks.filter(net => net !== currentNetwork);
+    supportedNetworks.unshift(currentNetwork);
+
     const OpenSelector: React.FC = () => {
         return <>
-            {supportedNetworks.map((net) => (
+            {supportedNetworks.map(net => (
                 <NetworkOption key={net} network={net} />
             ))}
         </>;

@@ -8,23 +8,8 @@ export function isLocalhost(): boolean {
     return hostname === 'localhost' || hostname === '127.0.0.1';
 }
 
-export function getSupportedNetworks(showFirst?: NetworkName): NetworkName[]
-{
-    let supportedNetworks: NetworkName[] = [...allNetworks];
-
-    // Make showFirst the first element in supportedNetworks
-    if (showFirst) {
-        supportedNetworks = supportedNetworks.filter(net => net !== showFirst);
-        supportedNetworks.unshift(showFirst);
-    }
-
-    return supportedNetworks;
-}
-
 export function loadNetwork(): NetworkName
 {
-    const supportedNetworks = getSupportedNetworks();
-
     // Read 'network' URL parameter
     const params = new URLSearchParams(window.location.search);
     const networkFromUrl = params.get('network');
@@ -36,14 +21,14 @@ export function loadNetwork(): NetworkName
     window.history.replaceState({}, document.title, newUrl);
 
     // Use network from query string, if valid
-    if (isNetworkName(networkFromUrl) && supportedNetworks.includes(networkFromUrl)) {
+    if (isNetworkName(networkFromUrl) && allNetworks.includes(networkFromUrl)) {
         localStorage.setItem('polymedia.network', networkFromUrl);
         return networkFromUrl;
     }
 
     // Use network from local storage, if valid
     const networkFromLocal = localStorage.getItem('polymedia.network');
-    if (isNetworkName(networkFromLocal) && supportedNetworks.includes(networkFromLocal)) {
+    if (isNetworkName(networkFromLocal) && allNetworks.includes(networkFromLocal)) {
         return networkFromLocal;
     }
 
