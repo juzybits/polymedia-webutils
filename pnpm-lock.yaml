@@ -6,13 +6,13 @@ settings:
 
 dependencies:
   '@polymedia/suits':
-    specifier: ^0.0.27
-    version: 0.0.27
+    specifier: ^0.0.28
+    version: 0.0.28
 
 devDependencies:
   '@types/react':
-    specifier: ^18.2.60
-    version: 18.2.60
+    specifier: ^18.2.61
+    version: 18.2.61
   '@types/react-dom':
     specifier: ^18.2.19
     version: 18.2.19
@@ -183,8 +183,8 @@ packages:
       fastq: 1.17.1
     dev: true
 
-  /@polymedia/suits@0.0.27:
-    resolution: {integrity: sha512-/itc7gjjmHcGT76kxvrjY8ziavzm2GlB8JlYsbvmIi2uq8FNbLuLTKlpAbVlZQ9NR3ugXFXgeumkS9ltUjiB1g==}
+  /@polymedia/suits@0.0.28:
+    resolution: {integrity: sha512-v4DK1Pm9uXbI1nGKCnOnxgNgRZmP93QCKQU3S2kiFGYsvoacbRic2MolgoAvcxKuBi9Yv+CTk+IrioBZ1v5qFQ==}
     dependencies:
       '@mysten/sui.js': 0.50.1
     dev: false
@@ -223,11 +223,11 @@ packages:
   /@types/react-dom@18.2.19:
     resolution: {integrity: sha512-aZvQL6uUbIJpjZk4U8JZGbau9KDeAwMfmhyWorxgBkqDIEf6ROjRozcmPIicqsUwPUjbkDfHKgGee1Lq65APcA==}
     dependencies:
-      '@types/react': 18.2.60
+      '@types/react': 18.2.61
     dev: true
 
-  /@types/react@18.2.60:
-    resolution: {integrity: sha512-dfiPj9+k20jJrLGOu9Nf6eqxm2EyJRrq2NvwOFsfbb7sFExZ9WELPs67UImHj3Ayxg8ruTtKtNnbjaF8olPq0A==}
+  /@types/react@18.2.61:
+    resolution: {integrity: sha512-NURTN0qNnJa7O/k4XUkEW2yfygA+NxS0V5h1+kp9jPwhzZy95q3ADoGMP0+JypMhrZBTTgjKAUlTctde1zzeQA==}
     dependencies:
       '@types/prop-types': 15.7.11
       '@types/scheduler': 0.16.8
@@ -1147,7 +1147,7 @@ packages:
     dependencies:
       es-errors: 1.3.0
       hasown: 2.0.1
-      side-channel: 1.0.5
+      side-channel: 1.0.6
     dev: true
 
   /is-array-buffer@3.0.4:
@@ -1730,8 +1730,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /side-channel@1.0.5:
-    resolution: {integrity: sha512-QcgiIWV4WV7qWExbN5llt6frQB/lBven9pqliLXfGPB+K9ZYXxDozp0wLkHS24kWCm+6YXH/f0HhnObZnZOBnQ==}
+  /side-channel@1.0.6:
+    resolution: {integrity: sha512-fDW/EZ6Q9RiO8eFG8Hj+7u/oW+XrPTIChwCOM2+th2A6OblDtYYIpve9m+KvI9Z4C9qSEXlaGR6bTEYHReuglA==}
     engines: {node: '>= 0.4'}
     dependencies:
       call-bind: 1.0.7
@@ -1756,7 +1756,7 @@ packages:
       internal-slot: 1.0.7
       regexp.prototype.flags: 1.5.2
       set-function-name: 2.0.2
-      side-channel: 1.0.5
+      side-channel: 1.0.6
     dev: true
 
   /string.prototype.trim@1.2.8:

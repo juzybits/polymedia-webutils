@@ -1,6 +1,6 @@
 {
     "private": false,
-    "version": "4.2.1",
+    "version": "4.2.2",
     "name": "@polymedia/webutils",
     "author": "@juzybits (https://polymedia.app)",
     "homepage": "https://polymedia.app",
@@ -22,14 +22,14 @@
         "prepublishOnly": "rm -rf dist/ && pnpm build"
     },
     "dependencies": {
-        "@polymedia/suits": "^0.0.27"
+        "@polymedia/suits": "^0.0.28"
     },
     "peerDependencies": {
         "react": "^18.0.0",
         "react-dom": "^18.0.0"
     },
     "devDependencies": {
-        "@types/react": "^18.2.60",
+        "@types/react": "^18.2.61",
         "@types/react-dom": "^18.2.19",
         "@typescript-eslint/eslint-plugin": "^6.21.0",
         "@typescript-eslint/parser": "^6.21.0",
