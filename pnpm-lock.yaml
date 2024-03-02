@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@polymedia/suits':
-    specifier: ^0.0.28
-    version: 0.0.28
+    specifier: ^0.0.30
+    version: 0.0.30
 
 devDependencies:
   '@types/react':
@@ -183,8 +183,8 @@ packages:
       fastq: 1.17.1
     dev: true
 
-  /@polymedia/suits@0.0.28:
-    resolution: {integrity: sha512-v4DK1Pm9uXbI1nGKCnOnxgNgRZmP93QCKQU3S2kiFGYsvoacbRic2MolgoAvcxKuBi9Yv+CTk+IrioBZ1v5qFQ==}
+  /@polymedia/suits@0.0.30:
+    resolution: {integrity: sha512-LRPDXw+l61AC26secajmubXQCLD/HdAyErtwmIl76yc8vGL09+zWdhO/onECoSdqXdWSuCd3BvMou7PXCYfGLw==}
     dependencies:
       '@mysten/sui.js': 0.50.1
     dev: false
