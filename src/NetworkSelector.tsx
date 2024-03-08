@@ -17,36 +17,31 @@ export function NetworkSelector({
     const selectorRef = useRef(null);
     useClickOutside(selectorRef, () => { setIsOpen(false) });
 
-    const ClosedSelector: React.FC = () => {
-        return <div className='network-option' /* onMouseEnter={() => setIsOpen(true)} */ >
+    const SelectedOption: React.FC = () => {
+        return <div className='network-option selected' /* onMouseEnter={() => setIsOpen(true)} */ >
             <span className='text' onClick={() => { setIsOpen(true) }}>
                 {currentNetwork}
             </span>
         </div>;
     };
 
-    // Make the current network the first element in supportedNetworks
-    supportedNetworks = supportedNetworks.filter(net => net !== currentNetwork);
-    supportedNetworks.unshift(currentNetwork);
-
-    const OpenSelector: React.FC = () => {
-        return <>
-            {supportedNetworks.map(net => (
+    const NetworkOptions: React.FC = () => {
+        const otherNetworks = supportedNetworks.filter(net => net !== currentNetwork);
+        return <div className='network-options'>
+            {otherNetworks.map(net => (
                 <NetworkOption key={net} network={net} />
             ))}
-        </>;
+        </div>;
     };
 
     const NetworkOption: React.FC<{ network: NetworkName }> = ({ network }) => {
-        const isSelected = network === currentNetwork;
-        return <div className={`network-option ${isSelected ? 'selected' : ''}`}>
+        return <div className='network-option'>
             <span className='text'
-                onClick={isSelected ? undefined : () => {
+                onClick={() => {
                     switchNetwork(network, onSwitch);
                     setIsOpen(false);
                 }}
             >
-                {network == currentNetwork ? '>' : ''}
                 {network}
             </span>
         </div>;
@@ -55,10 +50,9 @@ export function NetworkSelector({
     return <div
         id='network-selector'
         ref={selectorRef}
-        // onMouseLeave={() => setIsOpen(false)}
+        onMouseLeave={() => {setIsOpen(false)}}
     >
-        <div className='network-options'>
-            {isOpen ? <OpenSelector /> : <ClosedSelector />}
-        </div>
+        <SelectedOption />
+        {isOpen && <NetworkOptions />}
     </div>;
 }
