@@ -14,21 +14,23 @@ export function loadNetwork(): NetworkName
     const params = new URLSearchParams(window.location.search);
     const networkFromUrl = params.get('network');
 
-    // Delete the 'network' parameter from the query string
-    params.delete('network');
-    const newQueryStr = params.toString();
-    const newUrl = window.location.pathname + (newQueryStr ? '?' + newQueryStr : '');
-    window.history.replaceState({}, document.title, newUrl);
+    if (networkFromUrl) {
+        // Delete the 'network' parameter from the query string
+        params.delete('network');
+        const newQuery = params.toString();
+        const newUrl = window.location.pathname + (newQuery ? '?' + newQuery : '') + window.location.hash;
+        window.history.replaceState({}, document.title, newUrl);
 
-    // Use network from query string, if valid
-    if (isNetworkName(networkFromUrl) && allNetworks.includes(networkFromUrl)) {
-        localStorage.setItem('polymedia.network', networkFromUrl);
-        return networkFromUrl;
+        // Use network from query string, if valid
+        if (isNetworkName(networkFromUrl)) {
+            localStorage.setItem('polymedia.network', networkFromUrl);
+            return networkFromUrl;
+        }
     }
 
     // Use network from local storage, if valid
     const networkFromLocal = localStorage.getItem('polymedia.network');
-    if (isNetworkName(networkFromLocal) && allNetworks.includes(networkFromLocal)) {
+    if (isNetworkName(networkFromLocal)) {
         return networkFromLocal;
     }
 
