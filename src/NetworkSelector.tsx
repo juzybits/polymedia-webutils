@@ -48,7 +48,7 @@ export function NetworkSelector({
     };
 
     return <div
-        id='network-selector'
+        className='network-selector'
         ref={selectorRef}
         onMouseLeave={() => {setIsOpen(false)}}
     >
