@@ -70,8 +70,8 @@ export async function getRpcConfig({
         .then(rpcEndpoints => {
             baseEndpoints = rpcEndpoints;
         })
-        .catch(error => {
-            console.warn(`[getRpcConfig] Error fetching RPC config. Will use local defaults. Error: ${error}`);
+        .catch((error: unknown) => {
+            console.warn(`[getRpcConfig] Error fetching RPC config. Will use local defaults. Error: ${String(error)}`);
         });
     }
 
