@@ -1,15 +1,14 @@
-import { NetworkName } from '@polymedia/suits';
 import { useRef, useState } from 'react';
-import { switchNetwork } from './network';
+import { BaseNetworkName, switchNetwork } from './network';
 import { useClickOutside } from './useClickOutside';
 
-export function NetworkSelector({
+export function NetworkSelector<NetworkName extends BaseNetworkName>({
     currentNetwork,
-    supportedNetworks = ['localnet', 'devnet', 'testnet', 'mainnet'],
+    supportedNetworks,
     onSwitch,
 }: {
     currentNetwork: NetworkName;
-    supportedNetworks?: NetworkName[];
+    supportedNetworks: readonly NetworkName[];
     onSwitch?: (newNetwork: NetworkName) => void;
 }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -36,12 +35,10 @@ export function NetworkSelector({
 
     const NetworkOption: React.FC<{ network: NetworkName }> = ({ network }) => {
         return <div className='network-option'>
-            <span className='text'
-                onClick={() => {
-                    switchNetwork(network, onSwitch);
-                    setIsOpen(false);
-                }}
-            >
+            <span className='text' onClick={() => {
+                switchNetwork(network, supportedNetworks, onSwitch);
+                setIsOpen(false);
+            }}>
                 {network}
             </span>
         </div>;

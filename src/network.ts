@@ -1,36 +1,34 @@
-import { NetworkName } from '@polymedia/suits';
-
-const defaultNetwork: NetworkName = 'mainnet';
-const allNetworks: NetworkName[] = ['localnet', 'devnet', 'testnet', 'mainnet'];
+export type BaseNetworkName = string;
 
 export function isLocalhost(): boolean {
     const hostname = window.location.hostname;
     return hostname === 'localhost' || hostname === '127.0.0.1';
 }
 
-export function loadNetwork(): NetworkName
-{
-    // Read 'network' URL parameter
+export function loadNetwork<NetworkName extends BaseNetworkName>(
+    supportedNetworks: readonly NetworkName[],
+    defaultNetwork: NetworkName,
+): NetworkName {
+    if (!isNetworkName(defaultNetwork, supportedNetworks)) {
+        throw new Error(`Network not supported: ${defaultNetwork}`);
+    }
+
+    // Use 'network' URL parameter, if valid
     const params = new URLSearchParams(window.location.search);
     const networkFromUrl = params.get('network');
-
-    if (networkFromUrl) {
-        // Delete the 'network' parameter from the query string
+    if (isNetworkName(networkFromUrl, supportedNetworks)) {
         params.delete('network');
         const newQuery = params.toString();
         const newUrl = window.location.pathname + (newQuery ? '?' + newQuery : '') + window.location.hash;
         window.history.replaceState({}, document.title, newUrl);
 
-        // Use network from query string, if valid
-        if (isNetworkName(networkFromUrl)) {
-            localStorage.setItem('polymedia.network', networkFromUrl);
-            return networkFromUrl;
-        }
+        localStorage.setItem('polymedia.network', networkFromUrl);
+        return networkFromUrl;
     }
 
     // Use network from local storage, if valid
     const networkFromLocal = localStorage.getItem('polymedia.network');
-    if (isNetworkName(networkFromLocal)) {
+    if (isNetworkName(networkFromLocal, supportedNetworks)) {
         return networkFromLocal;
     }
 
@@ -39,18 +37,25 @@ export function loadNetwork(): NetworkName
     return defaultNetwork;
 }
 
-export function switchNetwork(
+export function switchNetwork<NetworkName extends BaseNetworkName>(
     newNetwork: NetworkName,
+    supportedNetworks: readonly NetworkName[],
     onSwitch?: (newNetwork: NetworkName) => void
-) {
+): void {
+    if (!isNetworkName(newNetwork, supportedNetworks)) {
+        throw new Error(`Network not supported: ${newNetwork}`);
+    }
     localStorage.setItem('polymedia.network', newNetwork);
-    if (typeof onSwitch !== 'undefined') {
+    if (onSwitch) {
         onSwitch(newNetwork);
     } else {
         window.location.reload();
     }
 }
 
-function isNetworkName(value: string | null): value is NetworkName {
-    return value !== null && allNetworks.includes(value as NetworkName);
+function isNetworkName<NetworkName extends BaseNetworkName>(
+    value: string | null,
+    supportedNetworks: readonly NetworkName[],
+): value is NetworkName {
+    return value !== null && supportedNetworks.includes(value as NetworkName);
 }
