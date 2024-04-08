@@ -14,6 +14,7 @@ module.exports = {
     plugins: ['react-refresh'],
     rules: {
         '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+        '@typescript-eslint/restrict-template-expressions': 'off',
         'react/no-unescaped-entities': 'off',
         'react/prop-types': 'off',
         'react/react-in-jsx-scope': 'off',
