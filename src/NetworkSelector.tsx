@@ -6,11 +6,13 @@ export function NetworkSelector<NetworkName extends BaseNetworkName>({
     currentNetwork,
     supportedNetworks,
     onSwitch,
+    disabled = false,
     classes = ''
 }: {
     currentNetwork: NetworkName;
     supportedNetworks: readonly NetworkName[];
     onSwitch?: (newNetwork: NetworkName) => void;
+    disabled?: boolean,
     classes?: string,
 }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +22,7 @@ export function NetworkSelector<NetworkName extends BaseNetworkName>({
 
     const SelectedOption: React.FC = () => {
         return <div className='network-option selected' /* onMouseEnter={() => setIsOpen(true)} */ >
-            <span className='text' onClick={() => { setIsOpen(true) }}>
+            <span className='text' onClick={() => { !disabled && setIsOpen(true) }}>
                 {currentNetwork}
             </span>
         </div>;
@@ -38,8 +40,10 @@ export function NetworkSelector<NetworkName extends BaseNetworkName>({
     const NetworkOption: React.FC<{ network: NetworkName }> = ({ network }) => {
         return <div className='network-option'>
             <span className='text' onClick={() => {
-                switchNetwork(network, supportedNetworks, onSwitch);
-                setIsOpen(false);
+                if (!disabled) {
+                    switchNetwork(network, supportedNetworks, onSwitch);
+                    setIsOpen(false);
+                }
             }}>
                 {network}
             </span>
@@ -47,7 +51,7 @@ export function NetworkSelector<NetworkName extends BaseNetworkName>({
     };
 
     return <div
-        className={'network-selector ' + classes}
+        className={'network-selector ' + (disabled ? 'disabled' : '') + classes}
         ref={selectorRef}
         onMouseLeave={() => {setIsOpen(false)}}
     >
