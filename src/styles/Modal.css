@@ -15,7 +15,7 @@
     position: relative;
     margin: 0 auto;
     width: min(800px, 100%);
-    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
     overflow-y: scroll;
     border-radius: 10px;
     padding: 1.7em 1.9em 2.1em;
