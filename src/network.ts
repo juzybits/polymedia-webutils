@@ -2,7 +2,7 @@ export type BaseNetworkName = string;
 
 export function isLocalhost(): boolean {
     const hostname = window.location.hostname;
-    return hostname === 'localhost' || hostname === '127.0.0.1';
+    return hostname === "localhost" || hostname === "127.0.0.1";
 }
 
 export function loadNetwork<NetworkName extends BaseNetworkName>(
@@ -15,25 +15,25 @@ export function loadNetwork<NetworkName extends BaseNetworkName>(
 
     // Use 'network' URL parameter, if valid
     const params = new URLSearchParams(window.location.search);
-    const networkFromUrl = params.get('network');
+    const networkFromUrl = params.get("network");
     if (isNetworkName(networkFromUrl, supportedNetworks)) {
-        params.delete('network');
+        params.delete("network");
         const newQuery = params.toString();
-        const newUrl = window.location.pathname + (newQuery ? '?' + newQuery : '') + window.location.hash;
+        const newUrl = window.location.pathname + (newQuery ? "?" + newQuery : "") + window.location.hash;
         window.history.replaceState({}, document.title, newUrl);
 
-        localStorage.setItem('polymedia.network', networkFromUrl);
+        localStorage.setItem("polymedia.network", networkFromUrl);
         return networkFromUrl;
     }
 
     // Use network from local storage, if valid
-    const networkFromLocal = localStorage.getItem('polymedia.network');
+    const networkFromLocal = localStorage.getItem("polymedia.network");
     if (isNetworkName(networkFromLocal, supportedNetworks)) {
         return networkFromLocal;
     }
 
     // Use default network
-    localStorage.setItem('polymedia.network', defaultNetwork);
+    localStorage.setItem("polymedia.network", defaultNetwork);
     return defaultNetwork;
 }
 
@@ -45,7 +45,7 @@ export function switchNetwork<NetworkName extends BaseNetworkName>(
     if (!isNetworkName(newNetwork, supportedNetworks)) {
         throw new Error(`Network not supported: ${newNetwork}`);
     }
-    localStorage.setItem('polymedia.network', newNetwork);
+    localStorage.setItem("polymedia.network", newNetwork);
     if (onSwitch) {
         onSwitch(newNetwork);
     } else {

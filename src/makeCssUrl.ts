@@ -1,7 +1,7 @@
 export function makeCssUrl(url: string): string {
-    return 'url('
+    return "url("
         + encodeURI(url)
-            .replace(/\(/g, '%28')
-            .replace(/\)/g, '%29')
-        + ')';
+            .replace(/\(/g, "%28")
+            .replace(/\)/g, "%29")
+        + ")";
 }

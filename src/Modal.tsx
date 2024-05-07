@@ -1,4 +1,4 @@
-import './Modal.css';
+import "./Modal.css";
 
 export const Modal: React.FC<{
     content: React.ReactNode;
@@ -15,10 +15,10 @@ export const Modal: React.FC<{
     }
 
     return (
-        <div className='modal-background' style={styleBackground}>
-            <div className='modal-content' style={styleContent}>
+        <div className="modal-background" style={styleBackground}>
+            <div className="modal-content" style={styleContent}>
                 {content}
             </div>
         </div>
     );
-}
+};

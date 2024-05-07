@@ -1,15 +1,15 @@
 // DEPRECATED: This entire file is deprecated and may be removed in future releases.
 
-import { NetworkName } from '@polymedia/suits';
-import defaultEndpoints from './rpcConfig.json';
+import { NetworkName } from "@polymedia/suits";
+import defaultEndpoints from "./rpcConfig.json";
 
-const rpcConfigUrl = 'https://raw.githubusercontent.com/juzybits/polymedia-webutils/main/src/rpcConfig.json';
+const rpcConfigUrl = "https://raw.githubusercontent.com/juzybits/polymedia-webutils/main/src/rpcConfig.json";
 
 type ConnectionOptions = { // mirrors sui/sdk/typescript/src/rpc/connection.ts
-    fullnode: string,
-    websocket: string,
-    faucet: string,
-}
+    fullnode: string;
+    websocket: string;
+    faucet: string;
+};
 
 type RpcEndpoints = {
     localnet_fullnode: string;
@@ -27,7 +27,7 @@ type RpcEndpoints = {
     mainnet_fullnode: string;
     mainnet_websocket: string;
     mainnet_faucet: string;
-}
+};
 
 /**
  * Get the RPC configuration for a given network.
@@ -58,9 +58,9 @@ export async function getRpcConfig({
     fetch = false,
     customEndpoints = {},
 }: {
-    network: NetworkName,
-    customEndpoints?: Partial<RpcEndpoints>,
-    fetch?: boolean,
+    network: NetworkName;
+    customEndpoints?: Partial<RpcEndpoints>;
+    fetch?: boolean;
 }): Promise<ConnectionOptions>
 {
     let baseEndpoints = defaultEndpoints;
