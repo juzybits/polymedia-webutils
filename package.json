@@ -1,6 +1,6 @@
 {
     "private": false,
-    "version": "0.0.51",
+    "version": "0.0.52",
     "name": "@polymedia/webutils",
     "author": "@juzybits (https://polymedia.app)",
     "homepage": "https://polymedia.app",
@@ -18,7 +18,7 @@
     "scripts": {
         "build": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json && cp src/styles/*.css dist/cjs/ && cp src/styles/*.css dist/esm/",
         "clean": "rm -rf dist/ node_modules/",
-        "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+        "lint": "eslint src/ --report-unused-disable-directives --max-warnings 0",
         "prepublishOnly": "rm -rf dist/ && pnpm build"
     },
     "dependencies": {
@@ -28,16 +28,15 @@
         "react": "^18.0.0"
     },
     "devDependencies": {
-        "@stylistic/eslint-plugin": "^1.8.0",
-        "@types/react": "^18.3.1",
-        "@typescript-eslint/eslint-plugin": "^7.8.0",
-        "@typescript-eslint/parser": "^7.8.0",
-        "eslint": "^8.57.0",
+        "@eslint/compat": "^1.0.1",
+        "@eslint/js": "^9.3.0",
+        "@stylistic/eslint-plugin": "^2.1.0",
+        "@types/react": "^18.3.2",
+        "eslint": "^9.3.0",
         "eslint-plugin-react": "^7.34.1",
-        "eslint-plugin-react-hooks": "^4.6.2",
-        "eslint-plugin-react-refresh": "^0.4.6",
         "react": "^18.3.1",
-        "typescript": "^5.4.5"
+        "typescript": "^5.4.5",
+        "typescript-eslint": "^7.10.0"
     },
     "type": "module",
     "sideEffects": false,
