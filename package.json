@@ -1,6 +1,6 @@
 {
     "private": false,
-    "version": "0.0.52",
+    "version": "0.0.53",
     "name": "@polymedia/webutils",
     "author": "@juzybits (https://polymedia.app)",
     "homepage": "https://polymedia.app",
@@ -22,7 +22,7 @@
         "prepublishOnly": "rm -rf dist/ && pnpm build"
     },
     "dependencies": {
-        "@polymedia/suits": "^0.0.41"
+        "@polymedia/suits": "^0.0.42"
     },
     "peerDependencies": {
         "react": "^18.0.0"
