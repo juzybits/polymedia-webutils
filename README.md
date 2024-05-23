@@ -1,5 +1,3 @@
-# Polymedia Webutils
+# DEPRECATED
 
-Tools to help build Sui dApps with React.
-
-TODO: add list of exported tools.
+This repository has been superseded by [@polymedia/suitcase-react](https://github.com/juzybits/polymedia-suitcase)
